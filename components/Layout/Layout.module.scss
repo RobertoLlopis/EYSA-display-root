@@ -1,0 +1,6 @@
+@import "../../styles/partials/mixings";
+.container {
+  @include flex(flex-start, center, column);
+  min-height: 100vh;
+  padding: 0 0.5rem;
+}
