@@ -4,13 +4,12 @@ import {
   NormalizedCacheObject,
 } from "@apollo/client";
 import { useMemo } from "react";
-
 let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 function createIsomorphicLink() {
   if (typeof window === "undefined") {
     const { SchemaLink } = require("@apollo/client/link/schema");
-    const { schema } = require("./schema");
+    const { schema } = require("../pages/api/schema");
     return new SchemaLink({ schema });
   } else {
     const { HttpLink } = require("@apollo/client/link/http");

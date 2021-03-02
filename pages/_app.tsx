@@ -1,13 +1,18 @@
-import { ApolloProvider, useApolloClient } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
+import Head from "next/head";
 import { useApollo } from "src/apollo";
-import "../styles/globals.css";
+import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   const client = useApollo(pageProps.initialApolloState);
 
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />;
+      <Head>
+        <title>Air Company Catalog</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Component {...pageProps} />
     </ApolloProvider>
   );
 }

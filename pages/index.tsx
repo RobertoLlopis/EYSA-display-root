@@ -1,26 +1,24 @@
-import Head from "next/head";
 import { useQuery, gql } from "@apollo/client";
-import styles from "../styles/Home.module.css";
 import { initializeApollo } from "src/apollo";
+import Layout from "../components/Layout/Layout";
+
 //import { FilmCardContent } from "@eysa/films/components";
 const MyQuery = gql`
-  query MyQuery {
-    name
+  query {
+    films {
+      title
+    }
   }
 `;
 
 export default function Home(props) {
-  const { data, loading } = useQuery(MyQuery);
+  /* const { data, loading } = useQuery(MyQuery); */
+  console.log(props);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
       {/* <FilmCardContent /> */}
-      <p>{JSON.stringify(data)}</p>
-    </div>
+      <p>{JSON.stringify(props.intialApolloState)}</p>
+    </Layout>
   );
 }
 
