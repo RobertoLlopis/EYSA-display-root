@@ -1,0 +1,10 @@
+@import "../../styles/partials/mixings";
+
+.section {
+  @include flex(space-around, center);
+  flex-wrap: wrap;
+  padding: 2rem;
+  > div {
+    margin: 1rem;
+  }
+}

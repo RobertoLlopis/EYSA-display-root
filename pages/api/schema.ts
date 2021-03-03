@@ -13,11 +13,8 @@ export const typeDefs = gql`
   ${Film}
 
   type Query {
-    films: [Film]!
-    getFilm(name: String!): Film
-  }
-  schema {
-    query: Query
+    films: [Film!]!
+    getFilm(id: ID!): Film
   }
 `;
 

@@ -1,17 +1,29 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { Button } from "antd";
 import styles from "./Header.module.scss";
+
+import { ROUTES } from "../../utils/routes";
+
 function Header() {
+  const router = useRouter();
+  function isActive(linkRoute) {
+    return router.pathname === linkRoute ? styles.active : "";
+  }
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
         <ul>
           <li>
-            <Link href="/">Home</Link>
+            <Link href={ROUTES.HOME}>
+              <a className={isActive(ROUTES.HOME)}>Home</a>
+            </Link>
           </li>
-          <li>
-            <Link href="/films">Films</Link>
+          <li className={isActive(ROUTES.FILMS)}>
+            <Link href={ROUTES.FILMS}>
+              <a className={isActive(ROUTES.FILMS)}>Films</a>
+            </Link>
           </li>
         </ul>
       </nav>

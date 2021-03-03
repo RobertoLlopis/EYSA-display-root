@@ -1,13 +1,17 @@
-import { useApolloClient } from "@apollo/client";
+import { useApolloClient, useQuery } from "@apollo/client";
 import { Card, Divider } from "antd";
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import TabRow from "./Row/Row";
-import FilmSnap from "../FilmSnap/FilmSnap";
+import FilmSnap from "./FilmSnap/FilmSnap";
+import { queryDeclarations } from "utils/queryDeclarations";
+
 const contentSoon = (entity) => entity + " content soon available";
 
 function TabCard() {
-  const cache = useApolloClient().cache.extract();
-  const { films } = cache.ROOT_QUERY;
+  const {
+    data: { films },
+    loading,
+  } = useQuery(queryDeclarations.GET_FILMS);
   const [tabState, setTabState] = useState({
     tabKey: "films",
   });
@@ -30,14 +34,16 @@ function TabCard() {
     },
   ];
   const contentList = {
-    films: films.map((f, i: Number) => (
-      <>
-        <TabRow key={i}>
-          <FilmSnap film={f} />
-        </TabRow>
-        {i !== films.length - 1 && <Divider />}
-      </>
-    )),
+    films: loading
+      ? "loading"
+      : films.map((f, i: number) => (
+          <Fragment key={i}>
+            <TabRow>
+              <FilmSnap film={f} />
+            </TabRow>
+            {i !== films.length - 1 && <Divider />}
+          </Fragment>
+        )),
     music: <p>{contentSoon("Music")}</p>,
     podcasts: <p>{contentSoon("Podcasts")}</p>,
     books: <p>{contentSoon("Books")}</p>,
@@ -46,7 +52,9 @@ function TabCard() {
     setTabState({ tabKey: key });
   };
 
-  return (
+  return loading ? (
+    <p>Loading...</p>
+  ) : (
     <Card
       style={{ width: "100%" }}
       tabList={tabList}

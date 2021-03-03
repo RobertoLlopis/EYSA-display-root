@@ -1,22 +1,26 @@
-import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import { initializeApollo } from "src/apollo";
 import Layout from "../../components/Layout/Layout";
-import filmCatalog from "@eysa/server/data/filmCatalog.json";
-const MyQuery = gql`
-  query MyQuery {
-    name
-  }
-`;
+import { queryDeclarations } from "../../utils/queryDeclarations";
+import styles from "./Films.module.scss";
+import FilmCard from "components/FilmCard/FilmCard";
 
-export default function Films(props) {
-  console.log(props.data);
-  const { data } = props;
-  return <Layout> Films section: {data.map((d) => JSON.stringify(d))}</Layout>;
-}
-
-export async function getStaticProps() {
-  return {
-    props: { data: filmCatalog }, // will be passed to the page component as props
-  };
+export default function Films() {
+  const { loading, data } = useQuery(queryDeclarations.GET_FILMS);
+  return (
+    <Layout>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <h2>Film Catalog</h2>
+          <section className={styles.section}>
+            {data.films.map((film, i) => (
+              <FilmCard key={i} film={film} />
+            ))}
+          </section>
+        </>
+      )}
+    </Layout>
+  );
 }

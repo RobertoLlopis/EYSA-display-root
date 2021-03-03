@@ -3,4 +3,5 @@
 .row {
   @include flex(space-around, center);
   width: 100%;
+  cursor: pointer;
 }
