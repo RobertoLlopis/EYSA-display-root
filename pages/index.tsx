@@ -1,9 +1,9 @@
-import { useQuery, gql } from "@apollo/client";
+import { gql } from "@apollo/client";
+import TabCard from "components/TabCard/TabCard";
 import { initializeApollo } from "src/apollo";
 import Layout from "../components/Layout/Layout";
 
-//import { FilmCardContent } from "@eysa/films/components";
-const MyQuery = gql`
+const InitalQuery = gql`
   query {
     films {
       title
@@ -11,13 +11,11 @@ const MyQuery = gql`
   }
 `;
 
-export default function Home(props) {
-  /* const { data, loading } = useQuery(MyQuery); */
-  console.log(props);
+export default function Home() {
   return (
     <Layout>
-      {/* <FilmCardContent /> */}
-      <p>{JSON.stringify(props.intialApolloState)}</p>
+      <h1>Explore our catalog</h1>
+      <TabCard />
     </Layout>
   );
 }
@@ -26,11 +24,14 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo();
 
   await apolloClient.query({
-    query: MyQuery,
+    query: InitalQuery,
   });
+
+  const initialApolloState = apolloClient.cache.extract();
+
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
+      initialApolloState,
     },
   };
 }

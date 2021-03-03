@@ -3,4 +3,9 @@
   @include flex(flex-start, center, column);
   min-height: 100vh;
   padding: 0 0.5rem;
+  main {
+    width: 100%;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
 }
