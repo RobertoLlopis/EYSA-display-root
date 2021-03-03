@@ -7,6 +7,9 @@ const InitalQuery = gql`
   query {
     films {
       title
+      director
+      image
+      productionYear
     }
   }
 `;

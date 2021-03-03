@@ -1,7 +1,8 @@
 import { useApolloClient } from "@apollo/client";
-import { Card } from "antd";
+import { Card, Divider } from "antd";
 import React, { useState } from "react";
-
+import TabRow from "./Row/Row";
+import FilmSnap from "../FilmSnap/FilmSnap";
 const contentSoon = (entity) => entity + " content soon available";
 
 function TabCard() {
@@ -29,7 +30,14 @@ function TabCard() {
     },
   ];
   const contentList = {
-    films: <p>{films[0].title}</p>,
+    films: films.map((f, i: Number) => (
+      <>
+        <TabRow key={i}>
+          <FilmSnap film={f} />
+        </TabRow>
+        {i !== films.length - 1 && <Divider />}
+      </>
+    )),
     music: <p>{contentSoon("Music")}</p>,
     podcasts: <p>{contentSoon("Podcasts")}</p>,
     books: <p>{contentSoon("Books")}</p>,

@@ -1,0 +1,6 @@
+@import "../../../styles/partials/mixings";
+
+.row {
+  @include flex(space-around, center);
+  width: 100%;
+}
