@@ -10,7 +10,6 @@ const contentSoon = (entity) => entity + " content soon available";
 function TabCard() {
   const {
     data: { films },
-    loading,
   } = useQuery(queryDeclarations.GET_FILMS);
   const [tabState, setTabState] = useState({
     tabKey: "films",
@@ -34,16 +33,14 @@ function TabCard() {
     },
   ];
   const contentList = {
-    films: loading
-      ? "loading"
-      : films.map((f, i: number) => (
-          <Fragment key={i}>
-            <TabRow>
-              <FilmSnap film={f} />
-            </TabRow>
-            {i !== films.length - 1 && <Divider />}
-          </Fragment>
-        )),
+    films: films.map((f, i: number) => (
+      <Fragment key={i}>
+        <TabRow>
+          <FilmSnap film={f} />
+        </TabRow>
+        {i !== films.length - 1 && <Divider />}
+      </Fragment>
+    )),
     music: <p>{contentSoon("Music")}</p>,
     podcasts: <p>{contentSoon("Podcasts")}</p>,
     books: <p>{contentSoon("Books")}</p>,
@@ -52,9 +49,7 @@ function TabCard() {
     setTabState({ tabKey: key });
   };
 
-  return loading ? (
-    <p>Loading...</p>
-  ) : (
+  return (
     <Card
       style={{ width: "100%" }}
       tabList={tabList}

@@ -27,5 +27,6 @@ export async function getStaticProps() {
     props: {
       initialApolloState,
     },
+    revalidate: 5 * 60,
   };
 }
