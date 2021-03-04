@@ -1,5 +1,3 @@
-import { gql } from "@apollo/client";
-import ColumnGroup from "antd/lib/table/ColumnGroup";
 import TabCard from "components/TabCard/TabCard";
 import { initializeApollo } from "src/apollo";
 import { queryDeclarations } from "utils/queryDeclarations";
@@ -14,7 +12,7 @@ export default function Home(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const apolloClient = initializeApollo();
 
   await apolloClient.query({
@@ -27,6 +25,5 @@ export async function getStaticProps() {
     props: {
       initialApolloState,
     },
-    revalidate: 5 * 60,
   };
 }

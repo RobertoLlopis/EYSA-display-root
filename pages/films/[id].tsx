@@ -24,25 +24,7 @@ function film({ film }) {
   );
 }
 
-export async function getStaticPaths() {
-  const apolloClient = initializeApollo();
-
-  const queryResult = await apolloClient.query({
-    query: queryDeclarations.GET_FILMS_ID,
-  });
-  const { films } = queryResult.data;
-
-  // Get the paths we want to pre-render based on films
-  const paths = films.map((film) => {
-    return {
-      params: { id: film.id },
-    };
-  });
-  return { paths, fallback: true };
-}
-
-// This also gets called at build time
-export async function getStaticProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id } }) {
   const apolloClient = initializeApollo();
   const response = await apolloClient.query({
     query: queryDeclarations.GET_SINGLE_FULL_FILM,
@@ -56,7 +38,6 @@ export async function getStaticProps({ params: { id } }) {
       initialApolloState,
       film,
     },
-    revalidate: 5 * 60,
   };
 }
 
