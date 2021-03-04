@@ -1,0 +1,14 @@
+@import "../../styles/partials/variables";
+.iconsDiv {
+  margin-top: 3rem;
+}
+.icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.blue {
+  color: $primary-blue;
+}
+.orange {
+  color: $primary-orange;
+}

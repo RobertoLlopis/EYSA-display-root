@@ -6,7 +6,7 @@ export default gql`
     title: String!
     productionYear: String
     director: String!
-    valoration: String
+    valoration: Int
     image: String!
     comments: String
   }
