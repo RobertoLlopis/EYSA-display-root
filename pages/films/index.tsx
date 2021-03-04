@@ -1,10 +1,19 @@
-import { initializeApollo } from "src/apollo";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { initializeApollo } from "apollo/apollo";
+import { useAuthContext } from "context/AuthContext";
 import Layout from "../../components/Layout/Layout";
-import { queryDeclarations } from "../../utils/queryDeclarations";
-import styles from "./Films.module.scss";
 import FilmCard from "components/FilmCard/FilmCard";
+import { queryDeclarations } from "../../utils/queryDeclarations";
+import { ROUTES } from "../../utils/routes";
+import styles from "./Films.module.scss";
 
 export default function Films({ films }) {
+  const router = useRouter();
+  const { user } = useAuthContext();
+  useEffect(() => {
+    !user && router.push(ROUTES.LOGIN);
+  }, []);
   return (
     <Layout>
       <>

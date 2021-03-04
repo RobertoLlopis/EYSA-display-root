@@ -1,9 +1,18 @@
-import Layout from "components/Layout/Layout";
-import { initializeApollo } from "src/apollo";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { initializeApollo } from "apollo/apollo";
+import { useAuthContext } from "context/AuthContext";
 import { queryDeclarations } from "utils/queryDeclarations";
-import styles from "./Film.module.scss";
+import { ROUTES } from "utils/routes";
+import Layout from "components/Layout/Layout";
 import Stars from "components/Stars/Stars";
+import styles from "./Film.module.scss";
 function film({ film }) {
+  const router = useRouter();
+  const { user } = useAuthContext();
+  useEffect(() => {
+    !user && router.push(ROUTES.LOGIN);
+  }, []);
   return (
     <Layout>
       <section className={styles.infoSection}>
