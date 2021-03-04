@@ -1,6 +1,6 @@
 import { useApolloClient, useQuery } from "@apollo/client";
 import { Card, Divider } from "antd";
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import TabRow from "./Row/Row";
 import FilmSnap from "./FilmSnap/FilmSnap";
 import { queryDeclarations } from "utils/queryDeclarations";

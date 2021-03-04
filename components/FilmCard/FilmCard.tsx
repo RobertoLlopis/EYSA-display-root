@@ -1,6 +1,5 @@
 import { Card } from "antd";
 import { useRouter } from "next/router";
-import React from "react";
 import { ROUTES } from "utils/routes";
 import styles from "./FilmCard.module.scss";
 function FilmCard({ film }) {

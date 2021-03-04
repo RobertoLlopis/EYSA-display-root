@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
 import { Button } from "antd";
 import styles from "./Header.module.scss";
 

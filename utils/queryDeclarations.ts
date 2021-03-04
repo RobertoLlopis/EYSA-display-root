@@ -36,4 +36,11 @@ export const queryDeclarations = {
       }
     }
   `,
+  GET_FILMS_ID: gql`
+    query GET_FILMS_ID {
+      films {
+        id
+      }
+    }
+  `,
 };

@@ -4,11 +4,7 @@ import { queryDeclarations } from "utils/queryDeclarations";
 import styles from "./Film.module.scss";
 import Stars from "components/Stars/Stars";
 function film({ film }) {
-  console.log(film);
-  //const { valoration, title, image, director } = film;
-  return !film ? (
-    <p>Loading</p>
-  ) : (
+  return (
     <Layout>
       <section className={styles.infoSection}>
         <img className={styles.img} alt="film picture" src={film.image}></img>
@@ -32,7 +28,7 @@ export async function getStaticPaths() {
   const apolloClient = initializeApollo();
 
   const queryResult = await apolloClient.query({
-    query: queryDeclarations.GET_FULL_FILMS,
+    query: queryDeclarations.GET_FILMS_ID,
   });
   const { films } = queryResult.data;
 
@@ -48,13 +44,20 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params: { id } }) {
   const apolloClient = initializeApollo();
-  const queryResult = await apolloClient.query({
+  const response = await apolloClient.query({
     query: queryDeclarations.GET_SINGLE_FULL_FILM,
     variables: { id },
   });
-  const { getFilm: film } = queryResult.data;
 
-  return { props: { film: film } };
+  const initialApolloState = apolloClient.cache.extract();
+  const { getFilm: film } = response.data;
+  return {
+    props: {
+      initialApolloState,
+      film,
+    },
+    revalidate: 5 * 60,
+  };
 }
 
 export default film;
