@@ -4,10 +4,10 @@ export default gql`
   type Film {
     id: ID!
     title: String!
-    productionYear: String
+    productionYear: String!
     director: String!
     valoration: Int
     image: String!
-    comments: String
+    comments: [Comment]!
   }
 `;

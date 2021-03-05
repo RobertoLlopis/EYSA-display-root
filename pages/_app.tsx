@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "apollo/apollo";
 import { AuthContext } from "../context/AuthContext";
@@ -7,7 +7,14 @@ import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   const client = useApollo(pageProps.initialApolloState);
-  const [user, setUser] = useState(null);
+
+  if (typeof window !== "undefined") {
+    var storageUser = localStorage.getItem("user")
+      ? localStorage.getItem("user")
+      : null;
+  }
+  const [user, setUser] = useState(storageUser);
+
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider

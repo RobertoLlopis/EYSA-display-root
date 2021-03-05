@@ -33,6 +33,11 @@ export const queryDeclarations = {
         image
         productionYear
         valoration
+        comments {
+          user
+          id
+          message
+        }
       }
     }
   `,

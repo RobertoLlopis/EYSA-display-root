@@ -14,6 +14,7 @@ function Header() {
   }
   function handleClick(_e) {
     setUser(null);
+    localStorage.removeItem("user");
     router.push(ROUTES.LOGIN);
   }
   return (

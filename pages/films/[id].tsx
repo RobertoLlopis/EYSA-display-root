@@ -7,6 +7,7 @@ import { ROUTES } from "utils/routes";
 import Layout from "components/Layout/Layout";
 import Stars from "components/Stars/Stars";
 import styles from "./Film.module.scss";
+import Comments from "components/Comments/Comments";
 function film({ film }) {
   const router = useRouter();
   const { user } = useAuthContext();
@@ -26,9 +27,14 @@ function film({ film }) {
             <h4>Director:</h4>
             <h2>{film.director}</h2>
           </div>
+          <div>
+            <h4>Year:</h4>
+            <h2>{film.productionYear}</h2>
+          </div>
           <Stars valoration={film.valoration} />
         </div>
       </section>
+      <Comments comments={film.comments} filmId={film.id} />
     </Layout>
   );
 }

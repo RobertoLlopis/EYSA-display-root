@@ -7,6 +7,7 @@ const Login = () => {
   const { setUser } = useAuthContext();
   const onFinish = ({ username }) => {
     setUser(username);
+    localStorage.setItem("user", username);
     router.back();
   };
 
