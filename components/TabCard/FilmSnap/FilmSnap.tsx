@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ROUTES } from "utils/routes";
+import { ROUTES } from "../../../utils/routes";
 import styles from "./FilmSnap.module.scss";
 
 function FilmSnap({ film }) {
@@ -13,14 +13,22 @@ function FilmSnap({ film }) {
   };
   return (
     <>
-      <div className={styles.picWrapper} onClick={handleClick}>
+      <div
+        role="picWrapper"
+        className={styles.picWrapper}
+        onClick={handleClick}
+      >
         <img
           src={image}
           className={styles.coverPicture}
           alt={`${title} film picture`}
         />
       </div>
-      <div className={styles.infoWrapper} onClick={handleClick}>
+      <div
+        role="infoWrapper"
+        className={styles.infoWrapper}
+        onClick={handleClick}
+      >
         <div className={styles.titleDirector}>
           <h2>{title}</h2>
           <h5>{director}</h5>
