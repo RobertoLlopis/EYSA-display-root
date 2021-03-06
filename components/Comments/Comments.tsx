@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { Comment, Form, Button, Input, Divider } from "antd";
-import { useAuthContext } from "context/AuthContext";
+import { useAuthContext } from "../../context/AuthContext";
 import { useState } from "react";
-import { mutationDeclarations } from "utils/mutationDeclarations";
+import { mutationDeclarations } from "../../utils/mutationDeclarations";
 
 import styles from "./Comments.module.scss";
 
@@ -10,10 +10,16 @@ const { TextArea } = Input;
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <Form>
     <Form.Item>
-      <TextArea rows={4} onChange={onChange} value={value} />
+      <TextArea
+        role="commentMessage"
+        rows={4}
+        onChange={onChange}
+        value={value}
+      />
     </Form.Item>
     <Form.Item>
       <Button
+        role="sumbitComment"
         htmlType="submit"
         loading={submitting}
         onClick={onSubmit}
