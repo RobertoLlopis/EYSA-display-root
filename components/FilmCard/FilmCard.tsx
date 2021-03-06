@@ -1,6 +1,6 @@
 import { Card } from "antd";
 import { useRouter } from "next/router";
-import { ROUTES } from "utils/routes";
+import { ROUTES } from "../../utils/routes";
 import styles from "./FilmCard.module.scss";
 function FilmCard({ film }) {
   const router = useRouter();
@@ -13,6 +13,7 @@ function FilmCard({ film }) {
   };
   return (
     <Card
+      role="filmCard"
       hoverable
       className={styles.card}
       cover={<img alt={`${title} film picture`} src={image} />}
