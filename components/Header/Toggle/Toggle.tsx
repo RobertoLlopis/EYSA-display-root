@@ -18,7 +18,7 @@ function Toggle() {
         <input
           type="checkbox"
           onClick={handleClick}
-          checked={theme === "light" ? false : true}
+          defaultChecked={theme === "light" ? false : true}
         />
         <div className={styles.switch}></div>
       </label>
