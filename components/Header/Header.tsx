@@ -5,6 +5,7 @@ import styles from "./Header.module.scss";
 
 import { ROUTES } from "../../utils/routes";
 import { useAuthContext } from "context/AuthContext";
+import Toggle from "./Toggle/Toggle";
 
 function Header() {
   const router = useRouter();
@@ -33,6 +34,7 @@ function Header() {
           </li>
         </ul>
       </nav>
+      <Toggle />
       <Button type="primary" onClick={handleClick}>
         Sign out
       </Button>

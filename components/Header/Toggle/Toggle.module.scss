@@ -1,0 +1,51 @@
+@import "../../../styles/partials/mixings";
+
+$width: 70px;
+$padding: 7px;
+$height: $width / 2 + $padding;
+.container {
+  @include flex(center, center);
+  h4 {
+    display: inline;
+    margin: 0;
+    margin-right: 2rem;
+  }
+}
+.switchWrap {
+  cursor: pointer;
+  display: block;
+  background: #15273b;
+  padding: $padding;
+  width: $width;
+  height: $height;
+  border-radius: $height / 2;
+  position: relative;
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+.switch {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0fr 1fr 1fr;
+  transition: 0.2s;
+  //ICYMI, pseudo elements are treated as grid items
+  &::after {
+    content: "";
+    border-radius: 50%;
+    background: rgb(253, 253, 253);
+    grid-column: 2;
+    transition: background 0.2s;
+  }
+}
+input:checked {
+  + .switch {
+    grid-template-columns: 1fr 1fr 0fr;
+    &::after {
+      background-color: #313131;
+    }
+  }
+}
