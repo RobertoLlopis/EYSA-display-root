@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { MockedProvider } from "@apollo/client/testing";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { useAuthContext } from "../../context/AuthContext";
 import { useThemeContext } from "../../context/ThemeContext";
 import { ROUTES } from "../../utils/routes";

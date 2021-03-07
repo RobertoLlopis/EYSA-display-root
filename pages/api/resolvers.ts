@@ -1,5 +1,4 @@
 import fs from "fs";
-import path from "path";
 const filmCatalogPath = "../server/data/filmCatalog.json";
 export const resolvers = {
   Query: {

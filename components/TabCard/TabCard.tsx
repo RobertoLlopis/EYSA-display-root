@@ -1,4 +1,4 @@
-import { useApolloClient, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { Card, Divider } from "antd";
 import { Fragment, useState } from "react";
 import TabRow from "./Row/Row";
