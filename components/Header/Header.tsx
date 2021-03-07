@@ -4,7 +4,7 @@ import { Button } from "antd";
 import styles from "./Header.module.scss";
 
 import { ROUTES } from "../../utils/routes";
-import { useAuthContext } from "context/AuthContext";
+import { useAuthContext } from "../../context/AuthContext";
 import Toggle from "./Toggle/Toggle";
 
 function Header() {
@@ -24,12 +24,16 @@ function Header() {
         <ul>
           <li>
             <Link href={ROUTES.HOME}>
-              <a className={isActive(ROUTES.HOME)}>Home</a>
+              <a data-testid="home" className={isActive(ROUTES.HOME)}>
+                Home
+              </a>
             </Link>
           </li>
-          <li className={isActive(ROUTES.FILMS)}>
+          <li>
             <Link href={ROUTES.FILMS}>
-              <a className={isActive(ROUTES.FILMS)}>Films</a>
+              <a data-testid="films" className={isActive(ROUTES.FILMS)}>
+                Films
+              </a>
             </Link>
           </li>
         </ul>

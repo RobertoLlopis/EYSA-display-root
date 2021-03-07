@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { initializeApollo } from "apollo/apollo";
-import { useAuthContext } from "context/AuthContext";
-import { queryDeclarations } from "utils/queryDeclarations";
-import { ROUTES } from "utils/routes";
-import Layout from "components/Layout/Layout";
-import Stars from "components/Stars/Stars";
+import { initializeApollo } from "../../apollo/apollo";
+import { useAuthContext } from "../../context/AuthContext";
+import { queryDeclarations } from "../../utils/queryDeclarations";
+import { ROUTES } from "../../utils/routes";
+import Layout from "../../components/Layout/Layout";
+import Stars from "../../components/Stars/Stars";
 import styles from "./Film.module.scss";
-import Comments from "components/Comments/Comments";
+import Comments from "../../components/Comments/Comments";
 function film({ film }) {
   const router = useRouter();
   const { user } = useAuthContext();

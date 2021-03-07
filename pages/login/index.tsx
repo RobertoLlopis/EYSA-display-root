@@ -20,7 +20,7 @@ const Login = () => {
           name="username"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <Input />
+          <Input placeholder="Your username..." />
         </Form.Item>
 
         <Form.Item
@@ -28,11 +28,11 @@ const Login = () => {
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password />
+          <Input.Password placeholder="Your password..." />
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button role="submitButton" type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
