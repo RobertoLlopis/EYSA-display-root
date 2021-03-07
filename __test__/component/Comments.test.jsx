@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, getByRole } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import { act } from "react-dom/test-utils";
 import { useAuthContext } from "../../context/AuthContext";

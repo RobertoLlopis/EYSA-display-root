@@ -31,6 +31,7 @@ describe("FilmCard", () => {
     expect(title).toBeVisible();
     expect(director).toBeVisible();
     expect(image).toBeVisible();
+    expect(image).toHaveAttribute("src", expectedFilm.image);
   });
   test("should redirect next router to film´s id dynamic page", () => {
     const { getByRole } = render(<FilmCard film={expectedFilm} />);

@@ -33,6 +33,7 @@ describe("FilmSnap", () => {
     expect(director).toBeVisible();
     expect(year).toBeVisible();
     expect(image).toBeVisible();
+    expect(image).toHaveAttribute("src", expectedFilm.image);
   });
   test("should redirect next router to film´s id dynamic page", () => {
     const { getByRole } = render(<FilmSnap film={expectedFilm} />);
