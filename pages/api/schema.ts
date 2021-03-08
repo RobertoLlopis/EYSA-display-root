@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 
-import Film from "./Film";
-import Comment from "./Comment";
+import Film from "./films/Film";
+import Comment from "./films/Comment";
 import { resolvers } from "./resolvers";
 export const typeDefs = gql`
   ${Film}
