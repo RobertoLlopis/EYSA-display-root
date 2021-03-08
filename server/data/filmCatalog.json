@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "The Godfather",
+    "productionYear": "1972",
+    "director": "Francis Ford Coppola",
+    "valoration": 5,
+    "image": "https://i.imgur.com/3vb1PgL.png",
+    "comments": [
+      { "id": 1, "user": "pepe", "message": "I love this movie so much" },
+      { "id": 2, "user": "juan", "message": "Meh" },
+      { "id": 3, "user": "pepe", "message": "Yesss" }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Apocalypse Now",
+    "productionYear": "1979",
+    "director": "Francis Ford Coppola",
+    "valoration": 5,
+    "image": "https://i.imgur.com/aJwpvnd.png",
+    "comments": [
+      { "id": 1, "user": "pepe", "message": "I love this movie so much" },
+      { "id": 2, "user": "pepe", "message": "Did i say i love it?" },
+      { "id": 3, "user": "pepe", "message": "Fourth time was not that good" }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Seven",
+    "productionYear": "1995",
+    "director": "David Fincher",
+    "valoration": 4,
+    "image": "https://i.imgur.com/g2uELGy.jpeg",
+    "comments": []
+  },
+  {
+    "id": 4,
+    "title": " American History X",
+    "productionYear": "1998",
+    "director": "Tony Kaye",
+    "valoration": 4,
+    "image": "https://i.imgur.com/gZxFnSe.png",
+    "comments": [
+      { "id": 1, "user": "Paco", "message": "great" },
+      { "id": 2, "user": "pepe", "message": "ffff" }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Pulp Fiction",
+    "productionYear": "1994",
+    "director": "Quentin Tarantino",
+    "valoration": 4,
+    "image": "https://i.imgur.com/qcwmtOP.jpg",
+    "comments": []
+  },
+  {
+    "id": 6,
+    "title": "12 Angry Men",
+    "productionYear": "1957",
+    "director": "Sidney Lumet",
+    "valoration": 4,
+    "image": "https://i.imgur.com/sSBy9hn.png",
+    "comments": []
+  }
+]
